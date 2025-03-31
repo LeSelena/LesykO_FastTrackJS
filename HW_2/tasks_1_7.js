@@ -35,3 +35,14 @@ if (!isNaN(inputNumber)) {
 
 
 //Task 3
+const myArray = [];
+myArray[0] = 77;
+myArray[1] = 'My string in the array';
+myArray[2] = true;
+myArray[3] = null;
+alert(`Array length: ${myArray.length}`);
+myArray[4] = prompt('Please enter any value', 'Any value');
+alert(`Fifth element: ${myArray[4]}`);
+// 8) Delete the 1st element of the array and display the array
+myArray.shift();
+alert(`Final Array: ${myArray}`);
