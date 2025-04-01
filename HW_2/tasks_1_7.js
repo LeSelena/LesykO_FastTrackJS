@@ -21,7 +21,7 @@ console.log( typeof res4); // "number"
 
 
 // Task 2
-let inputNumber = Number(prompt('Please enter a number only', 'Enter your number here'));  // Is convertion needed?
+let inputNumber = Number(prompt('Please enter a number only', 'Enter your number here'));
 if (!isNaN(inputNumber)) {
     let m = 3;
     let evenAndPositive = inputNumber % m === 0 && inputNumber > 0;
@@ -34,7 +34,7 @@ if (!isNaN(inputNumber)) {
 };
 
 
-//Task 3
+// Task 3
 const myArray = [];
 myArray[0] = 77;
 myArray[1] = 'My string in the array';
@@ -46,3 +46,22 @@ alert(`Fifth element: ${myArray[4]}`);
 // 8) Delete the 1st element of the array and display the array
 myArray.shift();
 alert(`Final Array: ${myArray}`);
+
+
+// Task 4
+const citiesList = [' Rome ', ' Lviv ', ' Warsaw '];
+const citiesUpdated = citiesList.join('*');
+console.log(citiesUpdated);
+
+
+// Task 5
+let isAdult = Number(prompt('Please enter your age', 'Enter your age here'));
+if (!isNaN(isAdult)) {
+    if (isAdult >= 18) {
+        alert('You have reached the age of majority');
+    } else {
+        alert('You are still too young');
+    }
+} else {
+    alert(`The input ${isAdult} is not valid! Please enter a valid age number`);
+};
