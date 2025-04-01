@@ -56,6 +56,7 @@ console.log(citiesUpdated);
 
 // Task 5
 let isAdult = Number(prompt('Please enter your age', 'Enter your age here'));
+!isNaN(isAdult) -> !=NOT Check if isAdult is a valid number (not NaN).
 if (!isNaN(isAdult)) {
     if (isAdult >= 18) {
         alert('You have reached the age of majority');
@@ -64,4 +65,35 @@ if (!isNaN(isAdult)) {
     }
 } else {
     alert(`The input ${isAdult} is not valid! Please enter a valid age number`);
+};
+
+
+// Task 6
+let triangleA = Number(prompt('Please enter the A-side length of the triangle in cm', 'A-side, cm'));
+let triangleB = Number(prompt('Please enter the B-side length of the triangle in cm', 'B-side, cm'));
+let triangleC = Number(prompt('Please enter the C-side length of the triangle in cm', 'C-side, cm'));
+
+// First check if entered by the User numbers are positive numbers for all three sides at the same moment ||=OR
+if (isNaN(triangleA) || isNaN(triangleB) || isNaN(triangleC) || triangleA <= 0 || triangleB <= 0 || triangleC <= 0) {
+    console.log('Incorrect data');
+} else if ( // The set of conditiouns for the triangle sides to form real triangle
+    triangleA + triangleB > triangleC &&
+    triangleA + triangleC > triangleB &&
+    triangleB + triangleC > triangleA
+) {
+    // Calculate semi-perimeter of the triangle
+    let sp = (triangleA + triangleB + triangleC) / 2;
+    // Calculate the area of the triangle based on semi-perimeter
+    let area = Math.sqrt(sp * (sp - triangleA) * (sp - triangleB) * (sp - triangleC));
+    // Create a separate array from sides numbers & order A-Z to consider that the longest/last in array/hypotenuse=c will be always on the last place
+    let sidesArray = [triangleA, triangleB, triangleC].sort((a, b) => a - b);
+    // Set the Pythagorean theorem a 2 + b 2 = C 2
+    let isRectangular = Math.pow(sidesArray[0], 2) + Math.pow(sidesArray[1], 2) === Math.pow(sidesArray[2], 2);
+
+    console.log(`The area of the triangle is: ${area.toFixed(3)} cm²`);
+
+    console.log(`Is the triangle rectangular? ${isRectangular ? 'Yes' : 'No'}`);
+
+} else {
+    console.log('Incorrect data');
 };
