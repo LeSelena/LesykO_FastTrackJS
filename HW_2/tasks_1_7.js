@@ -22,13 +22,9 @@ console.log( typeof res4); // "number"
 
 // Task 2
 let inputNumber = Number(prompt('Please enter a number only', 'Enter your number here'));
-if (!isNaN(inputNumber)) {
-    let m = 3;
-    let evenAndPositive = inputNumber % m === 0 && inputNumber > 0;
-    let isMultipleOfSeven = inputNumber % 7 === 0;
-
-    console.log(`The input number: ${inputNumber}`);
-    console.log(`The number when even m=3 is positive: ${evenAndPositive} and is a multiple of 7: ${isMultipleOfSeven}`);
+if (inputNumber > 0 && inputNumber % 7 === 0) {
+    
+    console.log(`The number is positive and is a multiple of 7: ${inputNumber}`);
 } else {
     console.log(`The input ${inputNumber} is not valid! Please enter a vali number`);
 };
