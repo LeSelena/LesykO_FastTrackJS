@@ -1,130 +1,113 @@
-// // Task 1
-// let x = 1;
-// let y = 2;
+// Task 1 -> FOR
+let myArray = [2, 3, 4, 5];
+let product = 1;
 
-// let res1 = String(x) + String(y); // Add the code, it is necessary to use the variables x and y
-// console.log(res1); // "12"
-// console.log( typeof res1); // "string"
+for (let i = 0; i < myArray.length; i++) {
+    product *= myArray[i];
+};
+alert('The product of the elements of this array: ' + product);
 
-// let res2 = Boolean(x) + String(y);// Add code is required use variables x and y
-// console.log(res2); // "true2"
-// console.log( typeof res2); // "string"
-
-// let res3 = Boolean(x<y);// Add code is required use variables x and y
-// console.log(res3); // true
-// console.log( typeof res3); // " boolean "
-
-// let res4 = (x-x) / (y-y);// Add code is required use variables x and y
-// console.log(res4); // NaN
-// console.log( typeof res4); // "number"
+// Task 1 -> WHILE
+let k = 0;
+let productW = 1;
+while (k < myArray.length) {
+    productW *= myArray[k];
+    k++;
+}
+alert('The product of the elements of this array: ' + productW);
 
 
 
-// // Task 2
-// let inputNumber = Number(prompt('Please enter a number only', 'Enter your number here'));
-// if (inputNumber > 0 && inputNumber % 7 === 0) {
-    
-//     console.log(`The number is positive and is a multiple of 7: ${inputNumber}`);
-// } else {
-//     console.log(`The input ${inputNumber} is not valid! Please enter a vali number`);
-// };
+//Task 2
+for (let m = 0; m <= 15; m++) {
+    if (m % 2 === 0) {
+        console.log(`${m} is even`);
+    } else (console.log(`${m} is odd`))
+}
 
 
-// // Task 3
-// const myArray = [];
-// myArray[0] = 77;
-// myArray[1] = 'My string in the array';
-// myArray[2] = true;
-// myArray[3] = null;
-// alert(`Array length: ${myArray.length}`);
-// myArray[4] = prompt('Please enter any value', 'Any value');
-// alert(`Fifth element: ${myArray[4]}`);
-// // 8) Delete the 1st element of the array and display the array
-// myArray.shift();
-// alert(`Final Array: ${myArray}`);
+//Task 3
+function randArray(l) {
+    let randomArray = [];
+    for (let a = 0; a < l; a++) {
+        let randomNumRange = Math.floor(Math.random() * 500) + 1; //Set the range from [1; 500], integers only
+        randomArray.push(randomNumRange);
+    }
+    return randomArray;
+}
+
+let number = 7;
+console.log(randArray(number));
 
 
-// // Task 4
-// const citiesList = [' Rome ', ' Lviv ', ' Warsaw '];
-// const citiesUpdated = citiesList.join('*');
-// console.log(citiesUpdated);
+//Task 4
+function raiseToDegree(b, c) {
+    let output = b ** c;
+    return output;
+}
 
-
-// // Task 5
-// let isAdult = Number(prompt('Please enter your age', 'Enter your age here'));
-// !isNaN(isAdult) -> !=NOT Check if isAdult is a valid number (not NaN).
-// if (!isNaN(isAdult)) {
-//     if (isAdult >= 18) {
-//         alert('You have reached the age of majority');
-//     } else {
-//         alert('You are still too young');
-//     }
-// } else {
-//     alert(`The input ${isAdult} is not valid! Please enter a valid age number`);
-// };
-
-
-// // Task 6
-// let triangleA = Number(prompt('Please enter the A-side length of the triangle in cm', 'A-side, cm'));
-// let triangleB = Number(prompt('Please enter the B-side length of the triangle in cm', 'B-side, cm'));
-// let triangleC = Number(prompt('Please enter the C-side length of the triangle in cm', 'C-side, cm'));
-
-// // First check if entered by the User numbers are positive numbers for all three sides at the same moment ||=OR
-// if (isNaN(triangleA) || isNaN(triangleB) || isNaN(triangleC) || triangleA <= 0 || triangleB <= 0 || triangleC <= 0) {
-//     console.log('Incorrect data');
-// } else if ( // The set of conditiouns for the triangle sides to form real triangle
-//     triangleA + triangleB > triangleC &&
-//     triangleA + triangleC > triangleB &&
-//     triangleB + triangleC > triangleA
-// ) {
-//     // Calculate semi-perimeter of the triangle
-//     let sp = (triangleA + triangleB + triangleC) / 2;
-//     // Calculate the area of the triangle based on semi-perimeter
-//     let area = Math.sqrt(sp * (sp - triangleA) * (sp - triangleB) * (sp - triangleC));
-//     // Create a separate array from sides numbers & order A-Z to consider that the longest/last in array/hypotenuse=c will be always on the last place
-//     let sidesArray = [triangleA, triangleB, triangleC].sort((a, b) => a - b);
-//     // Set the Pythagorean theorem a 2 + b 2 = C 2
-//     let isRectangular = Math.pow(sidesArray[0], 2) + Math.pow(sidesArray[1], 2) === Math.pow(sidesArray[2], 2);
-
-//     console.log(`The area of the triangle is: ${area.toFixed(3)} cm²`);
-
-//     console.log(`Is the triangle rectangular? ${isRectangular ? 'Yes' : 'No'}`);
-
-// } else {
-//     console.log('Incorrect data');
-// };
-
-
-//Task 7 -> with IF
-let currentHour = new Date().getHours();
-let greeting;
-
-if (currentHour >= 23 || currentHour < 5) {
-    greeting = "Good night";
-} else if (currentHour >= 5 && currentHour < 11) {
-    greeting = "Good morning";
-} else if (currentHour >= 11 && currentHour < 17) {
-    greeting = "Good day";
+let b = Number(prompt('Please enter the base number', 'number'));
+let c = Number(prompt('Please enter power value', 'power'));
+if (!isNaN(b) && Number.isInteger(b) && !isNaN(c) && Number.isInteger(c)) {
+    let result = raiseToDegree(b, c);
+    alert(`raiseToDegree(${b}, ${c}) with the result of exponentiation: ${result}`);
 } else {
-    greeting = "Good evening";
-}
-alert(greeting);
+    alert('Invalid input! Please enter an integer number only.');
+};
 
-//Task 7 -> with SWITCH
-switch (true) {
-    case (currentHour >= 23 || currentHour < 5):
-        greeting = "Good night";
-        break;
-    case (currentHour >= 5 && currentHour < 11):
-        greeting = "Good morning";
-        break;
-    case (currentHour >= 11 && currentHour < 17):
-        greeting = "Good day";
-        break;
-    case (currentHour >= 17 && currentHour < 23):
-        greeting = "Good evening";
-        break;
-    default:
-        greeting = "Time test";
+
+//Task 5
+function findMin() {
+    let min = arguments[0];
+    for (let i = 1; i < arguments.length; i++) {
+        if (arguments[i] < min) {
+            min = arguments[i];
+        }
+    }
+    return min;
 }
-alert(greeting);
+
+console.log(findMin(12, 14, 4, -4, 0.2)); // Output: -4
+
+
+//Task 6
+function findUnique(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array.indexOf(array[i]) !== array.lastIndexOf(array[i])) { // verifies all the i from array from the first to last if there two are different, hence, the value appears more than once
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(findUnique([1, 2, 3, 5, 3])); // -> false
+console.log(findUnique([1, 2, 3, 5, 11]));    // -> true
+
+
+//Task 7
+function getLastElement(arrayx, x) {
+    if (!Array.isArray(arrayx)) {// if this is not an array
+        return 'Invalid data! Input first argument as an array';
+    }
+
+    if (x === undefined) {//if no x parameter
+        return arrayx[arrayx.length - 1]; // return the last element of an array
+    }
+
+    return arrayx.slice(-x); // return last 'x' elements from the array
+}
+
+console.log(getLastElement([3, 4, 10, - 5])); // -5
+console.log(getLastElement([3, 4, 10, - 5], 2)); // [10, -5]
+console.log(getLastElement([3, 4, 10, - 5], 8)); // [3, 4, 10, -5]
+
+
+// Task 8
+function convertApperCase(text) {
+    return text
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
+console.log(convertApperCase('i love java script')); // I Love Java Script
