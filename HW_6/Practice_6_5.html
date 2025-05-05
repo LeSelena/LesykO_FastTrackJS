@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Embedding JavaScript</title>
+</head>
+<body>
+  <h1>I'm a big header!!!</h1>
+  <div id="myDiv">
+  <p>First paragraph</p>
+  <p>Second paragraph</p>
+  <p>Third paragraph</p>
+  <p>Fourth paragraph</p>
+  </div>
+  <ul id="myList">
+  <li>Make</li>
+  <li>me</li>
+  <li> horizontal !</li>
+  </ul>
+  <span>Make me invisible, please!</span>
+  <script>
+  // 1. Style the header
+  const header = document.querySelector("h1");
+  header.style.backgroundColor = "lightgreen";
+  header.style.fontSize = "32px";
+  header.style.fontWeight = "bold";
+
+  // 2. Style the paragraphs inside #myDiv
+  const paragraphs = document.querySelectorAll("#myDiv p");
+
+  if (paragraphs.length >= 4) {
+    paragraphs[0].style.fontWeight = "bold";
+    paragraphs[1].style.color = "red";
+    paragraphs[2].style.textDecoration = "underline";
+    paragraphs[3].style.fontStyle = "italic";
+  }
+
+  // 3. Make list horizontal
+  const listItems = document.querySelectorAll("#myList li");
+  listItems.forEach(li => {
+    li.style.display = "inline";
+    li.style.marginRight = "5px";
+  });
+
+  // 4. Hide the span
+  const span = document.querySelector("span");
+  span.style.display = "none";
+  </script>
+</body>
+</html>

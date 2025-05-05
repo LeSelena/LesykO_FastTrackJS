@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>Embedding JavaScript</title>
+</head>
+<body>
+
+  <!-- Original image -->
+  <img class="image" src="dog.jpg">
+  <br><br>
+  <button onclick="showModal()">Change to Cat & Show Modal</button>
+
+  <!-- Modal Structure -->
+  <div id="imgModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <!-- Image will be inserted here -->
+      <div id="modalImgContainer"></div>
+    </div>
+  </div>
+
+  <script>
+    function showModal() {
+      // Change image src
+      const img = document.querySelector(".image");
+      img.src = "cat.jpg";
+
+      // Show the modal
+      const modal = document.getElementById("imgModal");
+      modal.style.display = "block";
+
+      // Clone and insert updated <img> into the modal
+      const modalContainer = document.getElementById("modalImgContainer");
+      modalContainer.innerHTML = ""; // clear old content
+      modalContainer.appendChild(img.cloneNode(true));
+    }
+
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

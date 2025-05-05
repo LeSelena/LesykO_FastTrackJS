@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Embedding JavaScript</title>
+</head>
+<body>
+  <h2>Article header</h2>
+  <div id="text">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+  </div>
+  <p>Another text</p>
+
+  <script>
+    // Select all <p> elements inside the div with id="text"
+    const paragraphs = document.querySelectorAll("#text p");
+
+    // Loop through and log their content
+    paragraphs.forEach((para, index) => {
+      console.log(`Selector text ${index}: ${para.textContent}`);
+    });
+  </script>
+</body>
+</html>

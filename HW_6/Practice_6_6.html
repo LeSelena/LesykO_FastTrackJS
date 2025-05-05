@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Embedding JavaScript</title>
+</head>
+<body>
+
+  <input type="text" id="input1" value="Text1">
+  <input type="text" id="input2" value="Text2">
+
+  <script>
+    // Step 1: Prompt the user for two messages
+    const message1 = prompt("Enter first message:");
+    const message2 = prompt("Enter second message:");
+
+    // Step 2: Set the values of the input fields
+    const input1 = document.getElementById("input1");
+    const input2 = document.getElementById("input2");
+
+    input1.value = message1;
+    input2.value = message2;
+
+    // Step 3: Swap the values
+    const temp = input1.value;
+    input1.value = input2.value;
+    input2.value = temp;
+  </script>
+
+</body>
+</html>

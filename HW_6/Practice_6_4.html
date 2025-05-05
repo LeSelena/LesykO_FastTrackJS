@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Embedding JavaScript</title>
+</head>
+<body>
+
+  <ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <button onclick="showModalMethod1()">Show Modal (Method 1)</button>
+  <button onclick="showModalMethod2()">Show Modal (Method 2)</button>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // ✅ Method 1: Using querySelectorAll and index access
+    function showModalMethod1() {
+      const items = document.querySelectorAll("#list li");
+      const order = [0, 4, 1, 3, 2];
+      let output = "";
+
+      order.forEach(i => {
+        output += `<li>${items[i].textContent}</li>`;
+      });
+
+      document.getElementById("modalContent").innerHTML = `<ul>${output}</ul>`;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    // ✅ Method 2: Using getElementById and children
+    function showModalMethod2() {
+      const list = document.getElementById("list").children;
+      const outputList = document.createElement("ul");
+
+      const order = [0, 4, 1, 3, 2];
+      for (let i of order) {
+        const li = document.createElement("li");
+        li.textContent = list[i].textContent;
+        outputList.appendChild(li);
+      }
+
+      const modalContent = document.getElementById("modalContent");
+      modalContent.innerHTML = "";
+      modalContent.appendChild(outputList);
+      document.getElementById("modal").style.display = "flex";
+    }
+  </script>
+
+</body>
+</html>

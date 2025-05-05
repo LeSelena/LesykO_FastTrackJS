@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Embedding JavaScript</title>
+</head>
+<body>
+
+  <script>
+    // 1. Create <main> element and set class attribute
+    const main = document.createElement("main");
+    main.setAttribute("class", "mainClass check item");
+
+    // 2. Create <div> with id="myDiv"
+    const div = document.createElement("div");
+    div.setAttribute("id", "myDiv");
+
+    // 3. Create <p> element with text
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "First paragraph";
+
+    // 4. Assemble structure
+    div.appendChild(paragraph);
+    main.appendChild(div);
+    document.body.appendChild(main);
+  </script>
+
+</body>
+</html>
