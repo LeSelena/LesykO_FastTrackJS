@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <select id="country" onchange="updateCities()">
+        <option value="">--Choose a country--</option>
+        <option value="USA">USA</option>
+        <option value="Germany">Germany</option>
+        <option value="Ukraine">Ukraine</option>
+    </select>
+
+    <select id="city" onchange="displaySelection()">
+        <option value="">--Choose a city--</option>
+    </select>
+
+    <div id="selectionResult"></div>
+
+    <script>
+        const citiesByCountry = {
+            USA: ["New-York", "Washington", "Boston", "Chikago"],
+            Germany: ["Berlin", "Dresden", "Frankfurt"],
+            Ukraine: ["Kyiv", "Dnipro", "Lviv"]
+        };
+
+        function updateCities() {
+            const countrySelect = document.getElementById("country");
+            const citySelect = document.getElementById("city");
+            const selectedCountry = countrySelect.value;
+
+            // Clear current cities
+            citySelect.innerHTML = "<option value=''>--Choose a city--</option>";
+
+            if (selectedCountry && citiesByCountry[selectedCountry]) {
+                citiesByCountry[selectedCountry].forEach(city => {
+                    const option = document.createElement("option");
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+
+            // Reset displayed selection if country changed
+            document.getElementById("selectionResult").textContent = "";
+        }
+
+        function displaySelection() {
+            const country = document.getElementById("country").value;
+            const city = document.getElementById("city").value;
+
+            if (country && city) {
+                document.getElementById("selectionResult").textContent =
+                    `${country}, ${city}`;
+            }
+        }
+    </script>
+
+</body>
+</html>

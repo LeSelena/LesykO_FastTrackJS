@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <select id="nameList">
+        <option>Peter</option>
+        <option>John</option>
+        <option>Alise</option>
+        <option>Alex</option>
+        <option>Iren</option>
+    </select>
+
+    <button onclick="removeSelectedName()">Choose and Delete</button>
+
+    <script>
+        // Delete the selected item from the drop-down list when the button is pressed
+        function removeSelectedName() {
+            const select = document.getElementById("nameList");
+            const selectedIndex = select.selectedIndex;
+
+            if (selectedIndex !== -1) {
+                select.remove(selectedIndex);
+            } else {
+                alert("No item selected to delete.");
+            };
+        };
+    </script>
+
+</body>
+</html>
