@@ -2,40 +2,18 @@
 <html>
 <body>
 
-    <button id="btn1">Click to make the page blue.</button>
-    <button id="btn2">Double-click to make the page pink.</button>
-    <button id="btn3">Click and hold to make the page brown</button>
+    <button onclick="setBackground('blue')">Click to make the page blue.</button>
+    <button ondblclick="setBackground('pink')">Double-click to make the page pink.</button>
+    <button onmousedown="setBackground('brown')"
+        onmouseup="setBackground('white')">Click and hold to make the page brown</button>
     <br><br>
-    <a href="#" id="hoverLink">Hover over to make page yellow</a>
+    <a href="#" onmouseover="setBackground('yellow')"
+        onmouseout="setBackground('white')">Hover over to make page yellow</a>
 
     <script>
-        // 1st button – when you click on it, the background color of the page changes to blue
-        document.getElementById("btn1").addEventListener("click", () => {
-            document.body.style.backgroundColor = "blue";
-        });
-
-        // 2nd button – when you double-click it, the background color of the page changes to pink
-        document.getElementById("btn2").addEventListener("dblclick", () => {
-            document.body.style.backgroundColor = "pink";
-        });
-
-        // 3d button - when you press and hold the button, the background color of the page turns brown. When released - white
-        const btn3 = document.getElementById("btn3");
-        btn3.addEventListener("mousedown", () => {
-            document.body.style.backgroundColor = "brown";
-        });
-        btn3.addEventListener("mouseup", () => {
-            document.body.style.backgroundColor = "white";
-        });
-
-        // When hovering over the link, the background color becomes yellow, when hovering – white
-        const link = document.getElementById("hoverLink");
-        link.addEventListener("mouseover", () => {
-            document.body.style.backgroundColor = "yellow";
-        });
-        link.addEventListener("mouseout", () => {
-            document.body.style.backgroundColor = "white";
-        });
+        function setBackground(color) {
+            document.body.style.backgroundColor = color;
+        }
     </script>
 
 </body>

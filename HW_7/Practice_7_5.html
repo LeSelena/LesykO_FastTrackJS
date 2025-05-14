@@ -3,7 +3,7 @@
 <body>
 
     <button 
-    onclick="showMessage()"
+    onclick="pressMessage()"
     onmouseover="mouseOverMessage()" 
     onmouseout="mouseOutMessage()">
     Live Button!</button>
@@ -11,18 +11,18 @@
     <p id="messageArea"></p>
 
     <script>
-        const messageArea = document.getElementById("messageArea");
+        let messageArea = document.getElementById("messageArea");
 
-        function showMessage() {
-            messageArea.textContent = "I was pressed!";
+        function pressMessage() {
+            messageArea.innerHTML += "I was pressed! <br>";
         }
 
         function mouseOverMessage() {
-            messageArea.textContent = "Mouse on me!";
+            messageArea.innerHTML += "Mouse on me!";
         }
 
         function mouseOutMessage() {
-            messageArea.textContent = "Mouse is not on me!";
+            messageArea.innerHTML += "Mouse is not on me!";
         }
     </script>
 

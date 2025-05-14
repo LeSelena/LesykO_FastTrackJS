@@ -7,28 +7,22 @@
 <body>
     <script>
         // Task 1: Using methods of the window object create window
-        // Create a new window with a size of 300x300 pixels
-        let newWindow = window.open("", "", "width=300,height=300");
+        // Create a new empty window with a size of 300x300 pixels
+        let newWindow = window.open("", "", "width=300, height=300");
 
         // With a delay of 2 seconds, resize the window to 500x500 pixels
-        setTimeout(() => {
-            if (newWindow) {
-                newWindow.resizeTo(500, 500);
-            }
+        setTimeout(function () {
+            newWindow.resizeTo(500, 500);
         }, 2000);
 
         // With a delay of 2 seconds, move the window to the point with coordinates (200, 200)
-        setTimeout(() => {
-            if (newWindow) {
-                newWindow.moveTo(200, 200);
-            }
+        setTimeout(function () {
+            newWindow.moveTo(200, 200);
         }, 4000);
 
         // With a delay of 2 seconds, close the window
-        setTimeout(() => {
-            if (newWindow) {
-                newWindow.close();
-            }
+        setTimeout(function () {
+            newWindow.close();
         }, 6000);
 
     </script>
