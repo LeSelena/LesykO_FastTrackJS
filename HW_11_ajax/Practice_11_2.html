@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX Homework 11</title>
+</head>
+<body>
+  <button id="booksButton">Download Books</button>
+
+  <script>
+    document.getElementById("booksButton").addEventListener("click", function () {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "books.php", true);
+      
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // Create a new container for the books list
+          const booksList = document.createElement("div");
+          booksList.innerHTML = xhr.responseText;
+
+          // Replace the button with the list
+          const button = document.getElementById("booksButton");
+          button.parentNode.replaceChild(booksList, button);
+        }
+      };
+      xhr.send();
+    });
+  </script>
+</body>
+</html>
